@@ -30,7 +30,7 @@
 #modalTitle{
 	font-family: 'pokemonFont';
 	color: white;
-	font-size: x-large;
+	font-size: larger;
 }
 
 
@@ -44,7 +44,7 @@
 }
 
 #imgModal {
-	filter: drop-shadow(0px 3rem 20px rgb(0, 0, 0));
+	filter: drop-shadow(0px 3rem 20px rgba(0, 0, 0, 0.733));
 }
 
 #divNomePokemon {
