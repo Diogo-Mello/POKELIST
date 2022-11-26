@@ -8,12 +8,13 @@ var boolean = false;
 const divPokemonImg = document.getElementById('pokemonImg')
 const idModal = document.getElementById('idModal');
 const imgModal = document.getElementById('imgModal');
+const nomePokemon = document.getElementById('nomePokemon')
 var typeModalStyle;
 
 
 async function carregarPokemons() {
     showLoading();
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 1; i <= 20; i++) {
         let pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
         pokemon = await pokemon.json();
         pokemonList.push(pokemon);
@@ -40,10 +41,6 @@ function abrirModal (id) {
 
     idModal.innerHTML = pokemonList[id].id;
     imgModal.setAttribute('src', pokemonList[id].sprites.other.dream_world.front_default);
-    
-    
-
-    modal.isOpen = true;
 
     if(!boolean) {
         typeModalStyle = pokemonList[id].types[0].type.name;
@@ -52,6 +49,13 @@ function abrirModal (id) {
         typeModalStyle = pokemonList[id].types[0].type.name;
     }
     divPokemonImg.classList.add(typeModalStyle);
+
+    nomePokemon.innerHTML = pokemonList[id].name;
+    
+
+    modal.isOpen = true;
+
+    
     
     boolean = true;
 }

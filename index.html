@@ -50,19 +50,24 @@
       <ion-modal>
         <ion-header>
           <ion-toolbar color="primary">
-            <ion-title>ID: <span id="idModal"></span></ion-title>
+            <ion-title id="modalTitle">POKÉMON</ion-title>
             <ion-buttons slot="end">
               <ion-button onclick="modal.isOpen = false">Close</ion-button>
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
+          <div id="idPokemon">
+            <h1>ID: <span id="idModal"></span></h1>
+          </div>
           <div id="pokemonImg">
             <div id="bolaBranca">
               <img src="" alt="" id="imgModal">
             </div>
           </div>
-          <!-- <img src="https://docs-demo.ionic.io/assets/madison.jpg" alt="POKEMON IMAGE" id="imgModal"></img> -->
+          <div id="divNomePokemon">
+            <h1 id="nomePokemon" style="text-transform:capitalize;"></h1>
+          </div>
         </ion-content>
       </ion-modal>
 
