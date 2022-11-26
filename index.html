@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>POKELIST</title>
+
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/ion-colors.css">
+
+  <script defer src="src/js/funcoes.js"></script>
+  <script defer src="src/js/script.js"></script>
+</head>
+
+<body>
+  <ion-app>
+
+    <ion-header >
+      <ion-toolbar  class="ion-text-center" color="primary">
+        <ion-title>POKELIST</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content id="content" class="ion-padding" color="medium">
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>CLIQUE</ion-card-title>
+          <ion-card-subtitle>Para ver os dados do pokémon</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list id="listPokemon">
+            
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+
+
+
+
+
+
+      <ion-modal>
+        <ion-header>
+          <ion-toolbar color="primary">
+            <ion-title>ID: <span id="idModal"></span></ion-title>
+            <ion-buttons slot="end">
+              <ion-button onclick="modal.isOpen = false">Close</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <div id="pokemonImg">
+            <div id="bolaBranca">
+              <img src="" alt="" id="imgModal">
+            </div>
+          </div>
+          <!-- <img src="https://docs-demo.ionic.io/assets/madison.jpg" alt="POKEMON IMAGE" id="imgModal"></img> -->
+        </ion-content>
+      </ion-modal>
+
+    </ion-content>
+
+    <ion-footer>
+      <ion-toolbar class="ion-text-center" color="tertiary">
+        <ion-subtitle>Desenvolvido por: <br>Diogo Mello e Henry Giovani</ion-subtitle>
+      </ion-toolbar>
+    </ion-footer>
+
+  </ion-app>
+
+</body>
+
+</html>
