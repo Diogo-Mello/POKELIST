@@ -41,9 +41,8 @@
 #idPokemon h1 {
 	position: absolute;
 	font-family: 'pokemonFont';
-	top: 0.2rem;
+	top: 0rem;
 	left: 2rem;
-	transform: rotate(-10deg);
 }
 
 /* #imgModal {
