@@ -52,7 +52,7 @@
 	justify-content: end;
 	align-items: flex-start;
 	position: relative;
-	bottom: 2rem;
+	bottom: 3rem;
 	right: 0.5rem;
 	transform: rotate(-30deg);
 }
@@ -60,4 +60,5 @@
 #divNomePokemon h1 {
 	font-family: 'pokemonFont';
 	color: #000;
+	letter-spacing: 2px;
 }

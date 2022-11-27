@@ -3,6 +3,10 @@ const body = document.querySelector('body');
 const pokemonList = [];
 const listPokemon = document.getElementById('listPokemon');
 var boolean = false;
+var tipos = [];
+var ataques = [];
+var peso;
+var altura;
 
 // Modal variaveis
 const divPokemonImg = document.getElementById('pokemonImg')
@@ -10,6 +14,10 @@ const idModal = document.getElementById('idModal');
 const imgModal = document.getElementById('imgModal');
 const nomePokemon = document.getElementById('nomePokemon')
 var typeModalStyle;
+const tipoModal = document.getElementById('tipo');
+const pesoModal = document.getElementById('peso');
+const alturaModal = document.getElementById('altura');
+const ataquesModal = document.getElementById('ataques')
 
 
 async function carregarPokemons() {
@@ -20,7 +28,6 @@ async function carregarPokemons() {
         pokemonList.push(pokemon);
     }
     closeLoading();
-    console.log(pokemonList);
     mostrarPokemons();
 }
 
@@ -38,10 +45,18 @@ function mostrarPokemons() {
 }
 
 function abrirModal (id) {
+    tratarDados(id);
+    modal.isOpen = true;
+}
 
+function tratarDados (id) {
+    // Mudar o ID
     idModal.innerHTML = pokemonList[id].id;
+
+    // Mudar a foto
     imgModal.setAttribute('src', pokemonList[id].sprites.other.dream_world.front_default);
 
+    // Mudar a cor 
     if(!boolean) {
         typeModalStyle = pokemonList[id].types[0].type.name;
     } else {
@@ -49,17 +64,39 @@ function abrirModal (id) {
         typeModalStyle = pokemonList[id].types[0].type.name;
     }
     divPokemonImg.classList.add(typeModalStyle);
-
-    nomePokemon.innerHTML = pokemonList[id].name;
-    
-
-    modal.isOpen = true;
-
-    
-    
     boolean = true;
-}
 
+    // Mudar o nome do pokémon
+    nomePokemon.innerHTML = pokemonList[id].name;
+
+    // Adicionar os tipos
+    tipos = [];
+    tipoModal.innerHTML = '';
+    Object.keys(pokemonList[id].types).forEach((item) => {
+        tipos.push(pokemonList[id].types[item].type.name);
+        tipoModal.innerHTML += `<spam>${tipos[item]}</spam><br>`
+    })
+
+    // Adicionar os ataques
+    ataques = [];
+    tipoModal.innerHTML = '';
+    Object.keys(pokemonList[id].moves).forEach((item) => {
+        ataques.push(pokemonList[id].moves[item].move.name);
+        ataquesModal.innerHTML += `<spam>${ataques[item]}</spam><br>`
+    })
+
+    // Pegar peso
+    peso = pokemonList[id].weight;
+    pesoModal.innerHTML = peso;
+
+    // Pegar altura
+    altura = pokemonList[id].height;
+    alturaModal.innerHTML = altura;
+
+
+
+    
+}
 
 
 
@@ -88,3 +125,4 @@ function closeLoading() {
 // Nome: pokemonList[1].name
 // Imagem: 
 // ID: pokemonList[1].id
+// Tipos:
