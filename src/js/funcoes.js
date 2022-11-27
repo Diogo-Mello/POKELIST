@@ -36,7 +36,7 @@ function mostrarPokemons() {
         listPokemon.innerHTML += `
     <ion-item onclick="abrirModal(${y})">
         <ion-thumbnail slot="start">
-            <img alt="Silhouette of mountains" class="imagem" src="${item.sprites.other.dream_world.front_default}" />
+            <img alt="Silhouette of mountains" class="imagem" src="${item.sprites.front_default}" />
         </ion-thumbnail>
         <ion-label style="text-transform:capitalize;">${item.name}</ion-label>
     </ion-item>
