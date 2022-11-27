@@ -55,9 +55,8 @@
 	justify-content: end;
 	align-items: flex-start;
 	position: relative;
-	bottom: 3rem;
+	bottom: 4rem;
 	right: 0.5rem;
-	transform: rotate(-30deg);
 }
 
 #divNomePokemon h1 {
