@@ -40,7 +40,7 @@ function mostrarPokemons() {
         <ion-thumbnail slot="start">
             <img alt="Silhouette of mountains" class="imagem" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${y+1}.png" />
         </ion-thumbnail>
-        <ion-label style="text-transform:capitalize;">${item.name}</ion-label>
+        <ion-label style="text-transform:capitalize; ">${item.name}</ion-label>
     </ion-item>
     `
     })
