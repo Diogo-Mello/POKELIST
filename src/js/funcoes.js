@@ -24,7 +24,7 @@ const statusModal = document.getElementById('status');
 
 async function carregarPokemons() {
     showLoading();
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i <= 100; i++) {
         let pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
         pokemon = await pokemon.json();
         pokemonList.push(pokemon);
