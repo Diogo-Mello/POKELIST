@@ -20,11 +20,12 @@ const pesoModal = document.getElementById('peso');
 const alturaModal = document.getElementById('altura');
 const ataquesModal = document.getElementById('ataques');
 const statusModal = document.getElementById('status');
+const contentGraphicModal = document.querySelectorAll('.contentGraphic');
 
 
 async function carregarPokemons() {
     showLoading();
-    for (let i = 1; i <= 150; i++) {
+    for (let i = 1; i <= 20; i++) {
         let pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
         pokemon = await pokemon.json();
         pokemonList.push(pokemon);
@@ -62,9 +63,16 @@ function tratarDados (id) {
     if(!boolean) {
         typeModalStyle = pokemonList[id].types[0].type.name;
     } else {
+        contentGraphicModal.forEach((item) => {
+            item.classList.remove(typeModalStyle);
+        });
         divPokemonImg.classList.remove(typeModalStyle);
         typeModalStyle = pokemonList[id].types[0].type.name;
     }
+    
+    contentGraphicModal.forEach((item) => {
+        item.classList.add(typeModalStyle);
+    });
     divPokemonImg.classList.add(typeModalStyle);
     boolean = true;
 
@@ -100,11 +108,11 @@ function tratarDados (id) {
 
     // Pegar peso
     peso = pokemonList[id].weight;
-    pesoModal.innerHTML = peso;
+    pesoModal.innerHTML = peso.toFixed(1) / 10;
 
     // Pegar altura
     altura = pokemonList[id].height;
-    alturaModal.innerHTML = altura;
+    alturaModal.innerHTML = altura.toFixed(1) / 10;
     
 
 
@@ -112,6 +120,9 @@ function tratarDados (id) {
     
 }
 
+function statusPorcentagem (status) {
+
+}
 
 
 

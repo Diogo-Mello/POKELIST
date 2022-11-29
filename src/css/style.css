@@ -13,6 +13,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-radius: 1rem;
 }
 
 #bolaBranca {
@@ -29,6 +30,7 @@
 #idModal {
 	height: 1rem;
 	width: 1rem;
+	
 }
 
 #modalTitle{
@@ -43,11 +45,10 @@
 	font-family: 'pokemonFont';
 	top: 0rem;
 	left: 2rem;
+	color: black;
 }
 
-/* #imgModal {
-	filter: drop-shadow(0px 3rem 20px rgba(0, 0, 0, 0.733));
-} */
+
 
 #divNomePokemon {
 	display: flex;
@@ -62,4 +63,51 @@
 	font-family: 'pokemonFont';
 	color: #000;
 	letter-spacing: 2px;
+}
+
+#graphic {
+	position: relative;
+	bottom: 3rem;
+	width: 100%;
+}
+
+.graphic {
+	height: 6rem;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	margin: 0;
+	padding: 0;
+}
+
+.fontGraphic {
+	font-size: xx-small;
+}
+
+.contentGraphic {
+	border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.graphicHP {
+	height: 50%;
+}
+
+.graphicAttack {
+	height: 50%;
+}
+
+.graphicDefense {
+	height: 85%;
+}
+
+.graphicSAttack {
+	height: 10%;
+}
+
+.graphicSDefense {
+	height: 39%;
+}
+
+.graphicSpeed {
+	height: 86%;
 }

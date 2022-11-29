@@ -28,7 +28,7 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content id="content" class="ion-padding" color="medium">
+    <ion-content id="content" class="ion-padding" color="dark">
 
       <ion-card>
         <ion-card-header>
@@ -52,11 +52,11 @@
           <ion-toolbar color="primary">
             <ion-title id="modalTitle" class="fontePokemon">POKÉMON</ion-title>
             <ion-buttons slot="end">
-              <ion-button onclick="modal.isOpen = false">Close</ion-button>
+              <ion-button onclick="modal.isOpen = false">Fechar</ion-button>
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
-        <ion-content class="ion-padding">
+        <ion-content class="ion-padding ion-text-center" color="dark">
 
           <div id="idPokemon">
             <h1>ID: <span id="idModal"></span></h1>
@@ -71,6 +71,87 @@
           <div id="divNomePokemon">
             <h1 id="nomePokemon" style="text-transform:capitalize;"></h1>
           </div>
+
+
+          <ion-row id="graphic">
+            <ion-col size="2">
+              <ion-row>
+                <ion-col size="12" class="graphic">
+                  <ion-col size="12" class="graphicHP contentGraphic">
+                    
+                  </ion-col>
+                </ion-col>
+                <ion-col size="12" class="fontGraphic">
+                  HP
+                </ion-col>
+              </ion-row>
+            </ion-col>
+
+            <ion-col size="2">
+              <ion-row>
+                <ion-col size="12" class="graphic">
+                  <ion-col size="12" class="graphicAttack contentGraphic">
+                    
+                  </ion-col>
+                </ion-col>
+                <ion-col size="12" class="fontGraphic">
+                  Attack
+                </ion-col>
+              </ion-row>
+            </ion-col>
+
+            <ion-col size="2">
+              <ion-row>
+                <ion-col size="12" class="graphic">
+                  <ion-col size="12" class="graphicDefense contentGraphic">
+                    
+                  </ion-col>
+                </ion-col>
+                <ion-col size="12" class="fontGraphic">
+                  Defense
+                </ion-col>
+              </ion-row>
+            </ion-col>
+
+            <ion-col size="2">
+              <ion-row>
+                <ion-col size="12" class="graphic">
+                  <ion-col size="12" class="graphicSAttack contentGraphic">
+                    
+                  </ion-col>
+                </ion-col>
+                <ion-col size="12" class="fontGraphic">
+                  Special<br>Attack
+                </ion-col>
+              </ion-row>
+            </ion-col>
+
+            <ion-col size="2">
+              <ion-row>
+                <ion-col size="12" class="graphic">
+                  <ion-col size="12" class="graphicSDefense contentGraphic">
+                    
+                  </ion-col>
+                </ion-col>
+                <ion-col size="12" class="fontGraphic">
+                  Special<br>Defense
+                </ion-col>
+              </ion-row>
+            </ion-col>
+
+            <ion-col size="2">
+              <ion-row>
+                <ion-col size="12" class="graphic">
+                  <ion-col size="12" class="graphicSpeed contentGraphic">
+                    
+                  </ion-col>
+                </ion-col>
+                <ion-col size="12" class="fontGraphic">
+                  Speed
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
 
           <div id="conteudo">
             <div id="tipoModal">
