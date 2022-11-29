@@ -8,6 +8,7 @@ var ataques = [];
 var statusPokemons = [];
 var peso;
 var altura;
+var porcentagem;
 
 // Modal variaveis
 const divPokemonImg = document.getElementById('pokemonImg')
@@ -21,11 +22,13 @@ const alturaModal = document.getElementById('altura');
 const ataquesModal = document.getElementById('ataques');
 const statusModal = document.getElementById('status');
 const contentGraphicModal = document.querySelectorAll('.contentGraphic');
+const contentGraphicModalStatus = document.querySelectorAll('.graphicHP, .graphicAttack, .graphicDefense, .graphicSAttack, .graphicSDefense, .graphicSpeed');
+const numbersStatusGraphic = document.querySelectorAll('#numberHPStatus, #numberAttackStatus, #numberDefenseStatus, #numberSAttackStatus, #numberSDefenseStatus, #numberSpeedStatus');
 
 
 async function carregarPokemons() {
     showLoading();
-    for (let i = 1; i <= 20; i++) {
+    for (let i = 1; i <= 50; i++) {
         let pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
         pokemon = await pokemon.json();
         pokemonList.push(pokemon);
@@ -54,12 +57,15 @@ function abrirModal (id) {
 
 function tratarDados (id) {
     // Mudar o ID
+
     idModal.innerHTML = pokemonList[id].id;
 
     // Mudar a foto
+
     imgModal.setAttribute('src', pokemonList[id].sprites.other.dream_world.front_default);
 
     // Mudar a cor 
+
     if(!boolean) {
         typeModalStyle = pokemonList[id].types[0].type.name;
     } else {
@@ -69,7 +75,7 @@ function tratarDados (id) {
         divPokemonImg.classList.remove(typeModalStyle);
         typeModalStyle = pokemonList[id].types[0].type.name;
     }
-    
+
     contentGraphicModal.forEach((item) => {
         item.classList.add(typeModalStyle);
     });
@@ -77,9 +83,11 @@ function tratarDados (id) {
     boolean = true;
 
     // Mudar o nome do pokémon
+
     nomePokemon.innerHTML = pokemonList[id].name;
 
     // Adicionar os tipos
+
     tipos = [];
     tipoModal.innerHTML = '';
     Object.keys(pokemonList[id].types).forEach((item) => {
@@ -88,6 +96,7 @@ function tratarDados (id) {
     })
 
     // Adicionar os ataques
+
     ataques = [];
     ataquesModal.innerHTML = '';
     Object.keys(pokemonList[id].moves).forEach((item) => {
@@ -96,21 +105,25 @@ function tratarDados (id) {
     })
 
     // Adicionar os status
+
     statusPokemons = [];
-    statusModal.innerHTML = '';
     Object.keys(pokemonList[id].stats).forEach((item) => {
-        statusPokemons.push({
-            baseStatus: pokemonList[id].stats[item].base_stat,
-            status: pokemonList[id].stats[item].stat.name
-        });
-        statusModal.innerHTML += `<spam>${statusPokemons[item].status}: ${statusPokemons[item].baseStatus}</spam><br>`
+        statusPokemons.push(pokemonList[id].stats[item].base_stat);
     })
 
+    numbersStatusGraphic.forEach((item, x) => {
+        item.innerHTML = statusPokemons[x]
+    })
+
+    statusPorcentagem (statusPokemons);
+
     // Pegar peso
+
     peso = pokemonList[id].weight;
     pesoModal.innerHTML = peso.toFixed(1) / 10;
 
     // Pegar altura
+
     altura = pokemonList[id].height;
     alturaModal.innerHTML = altura.toFixed(1) / 10;
     
@@ -121,7 +134,10 @@ function tratarDados (id) {
 }
 
 function statusPorcentagem (status) {
-
+    contentGraphicModalStatus.forEach((item, posicao) => {
+        porcentagem = (status[posicao] * 100) / 200;
+        item.style.height = `${porcentagem}%`
+    })
 }
 
 
@@ -136,7 +152,6 @@ function statusPorcentagem (status) {
 async function showLoading() {
     const loading = await document.createElement('ion-loading');
     loading.message = 'Carregando';
-    // loading.duration = 2000;
     document.body.appendChild(loading);
     await loading.present();
 }
@@ -144,10 +159,4 @@ async function showLoading() {
 function closeLoading() {
     const carregando = document.querySelector('ion-loading');
     carregando.remove();
-}
-
-// Lista do que precisa aparecer como caminhos
-// Nome: pokemonList[1].name
-// Imagem: 
-// ID: pokemonList[1].id
-// Tipos:
+};

@@ -87,27 +87,3 @@
 .contentGraphic {
 	border-radius: 0.5rem 0.5rem 0 0;
 }
-
-.graphicHP {
-	height: 50%;
-}
-
-.graphicAttack {
-	height: 50%;
-}
-
-.graphicDefense {
-	height: 85%;
-}
-
-.graphicSAttack {
-	height: 10%;
-}
-
-.graphicSDefense {
-	height: 39%;
-}
-
-.graphicSpeed {
-	height: 86%;
-}
