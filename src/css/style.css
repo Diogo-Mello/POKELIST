@@ -14,6 +14,8 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: 1rem;
+	border: 4px solid black;
+	box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.733);
 }
 
 #bolaBranca {
@@ -25,6 +27,7 @@
 	justify-content: center;
 	align-items: center;
 	box-shadow: 0.5rem 0.5rem 1rem rgba(143, 138, 138, 0.733);
+	
 }
 
 #idModal {
@@ -78,6 +81,7 @@
 	align-items: flex-end;
 	margin: 0;
 	padding: 0;
+	
 }
 
 .fontGraphic {
@@ -86,4 +90,54 @@
 
 .contentGraphic {
 	border-radius: 0.5rem 0.5rem 0 0;
+	outline: 2px solid black;
+	box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.733);
+}
+
+#tipo_habilidade {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 6rem;
+	position: relative;
+	bottom: 2rem;
+	border-radius: 1rem;
+	color: #000;
+	font-family: 'Rubik';
+	font-size: large;
+}
+
+#tipoCard, #habilidadeCard {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 1rem;
+	border: 4px solid black;
+	box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.733);
+}
+
+.contentPesoAltura {
+	border-radius: 50%;
+	background-color: greenyellow;
+	height: 96px;
+	border: 0.1rem solid black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #000;
+	box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.733);
+}
+
+.contentPeso {
+	position: relative;
+	left: 4.8rem;
+	
+}
+
+.contentAltura {
+	position: relative;
+	top: 3.5rem;
+	left: 1.8rem;
 }

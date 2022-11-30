@@ -22,8 +22,8 @@
 <body>
   <ion-app>
 
-    <ion-header >
-      <ion-toolbar  class="ion-text-center" color="primary">
+    <ion-header>
+      <ion-toolbar class="ion-text-center" color="primary">
         <ion-title class="fontePokemon">POKELIST</ion-title>
       </ion-toolbar>
     </ion-header>
@@ -37,7 +37,7 @@
         </ion-card-header>
         <ion-card-content>
           <ion-list id="listPokemon">
-            
+
           </ion-list>
         </ion-card-content>
       </ion-card>
@@ -56,7 +56,7 @@
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
-        <ion-content class="ion-padding ion-text-center" color="dark">
+        <ion-content class="ion-padding" color="dark">
 
           <div id="idPokemon">
             <h1>ID: <span id="idModal"></span></h1>
@@ -73,12 +73,12 @@
           </div>
 
 
-          <ion-row id="graphic">
+          <ion-row id="graphic" class="ion-text-center">
             <ion-col size="2">
               <ion-row>
                 <ion-col size="12" class="graphic">
                   <ion-col size="12" class="graphicHP contentGraphic">
-                    
+
                   </ion-col>
                 </ion-col>
                 <ion-col size="12" class="fontGraphic">
@@ -92,7 +92,7 @@
               <ion-row>
                 <ion-col size="12" class="graphic">
                   <ion-col size="12" class="graphicAttack contentGraphic">
-                    
+
                   </ion-col>
                 </ion-col>
                 <ion-col size="12" class="fontGraphic">
@@ -106,7 +106,7 @@
               <ion-row>
                 <ion-col size="12" class="graphic">
                   <ion-col size="12" class="graphicDefense contentGraphic">
-                    
+
                   </ion-col>
                 </ion-col>
                 <ion-col size="12" class="fontGraphic">
@@ -120,7 +120,7 @@
               <ion-row>
                 <ion-col size="12" class="graphic">
                   <ion-col size="12" class="graphicSAttack contentGraphic">
-                    
+
                   </ion-col>
                 </ion-col>
                 <ion-col size="12" class="fontGraphic">
@@ -134,7 +134,7 @@
               <ion-row>
                 <ion-col size="12" class="graphic">
                   <ion-col size="12" class="graphicSDefense contentGraphic">
-                    
+
                   </ion-col>
                 </ion-col>
                 <ion-col size="12" class="fontGraphic">
@@ -148,7 +148,7 @@
               <ion-row>
                 <ion-col size="12" class="graphic">
                   <ion-col size="12" class="graphicSpeed contentGraphic">
-                    
+
                   </ion-col>
                 </ion-col>
                 <ion-col size="12" class="fontGraphic">
@@ -159,32 +159,30 @@
             </ion-col>
           </ion-row>
 
-          <div id="conteudo">
-            <div id="tipoModal">
-              Tipos: <br>
-              <span id="tipo"></span>
-            </div>
+          <ion-row id="tipo_habilidade">
+            <ion-col size="5" id="tipoCard" class="ion-text-center">
 
-            <br>
+            </ion-col>
+            <ion-col size="5" id="habilidadeCard">
+              <div id="conteudo">
+                <div id="ataquesModal">
+                  Ataques: <br>
+                  <span id="ataques"></span>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
 
-            <div id="pesoModal">
-              Peso: <br>
+          <ion-row>
+            <ion-col size="4" class="contentPesoAltura contentPeso ion-text-center">
+              <spam>Peso</spam>
               <span id="peso"></span>
-            </div>
-
-            <br>
-
-            <div id="alturaModal">
-              Altura: <br>
+            </ion-col>
+            <ion-col size="4" class="contentPesoAltura contentAltura">
+              <spam>Altura</spam>
               <span id="altura"></span>
-            </div>
-
-            <br>
-
-            <div id="ataquesModal">
-              Ataques: <br>
-              <span id="ataques"></span>
-            </div>
+            </ion-col>
+          </ion-row>
 
           </div>
 

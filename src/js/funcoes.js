@@ -21,14 +21,14 @@ const pesoModal = document.getElementById('peso');
 const alturaModal = document.getElementById('altura');
 const ataquesModal = document.getElementById('ataques');
 const statusModal = document.getElementById('status');
-const contentGraphicModal = document.querySelectorAll('.contentGraphic');
+const colorTypes = document.querySelectorAll('.contentGraphic, #habilidadeCard, #tipoCard, .contentPesoAltura');
 const contentGraphicModalStatus = document.querySelectorAll('.graphicHP, .graphicAttack, .graphicDefense, .graphicSAttack, .graphicSDefense, .graphicSpeed');
 const numbersStatusGraphic = document.querySelectorAll('#numberHPStatus, #numberAttackStatus, #numberDefenseStatus, #numberSAttackStatus, #numberSDefenseStatus, #numberSpeedStatus');
 
 
 async function carregarPokemons() {
     showLoading();
-    for (let i = 1; i <= 50; i++) {
+    for (let i = 1; i <= 50 ; i++) {
         let pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
         pokemon = await pokemon.json();
         pokemonList.push(pokemon);
@@ -69,14 +69,14 @@ function tratarDados (id) {
     if(!boolean) {
         typeModalStyle = pokemonList[id].types[0].type.name;
     } else {
-        contentGraphicModal.forEach((item) => {
+        colorTypes.forEach((item) => {
             item.classList.remove(typeModalStyle);
         });
         divPokemonImg.classList.remove(typeModalStyle);
         typeModalStyle = pokemonList[id].types[0].type.name;
     }
 
-    contentGraphicModal.forEach((item) => {
+    colorTypes.forEach((item) => {
         item.classList.add(typeModalStyle);
     });
     divPokemonImg.classList.add(typeModalStyle);
@@ -89,18 +89,18 @@ function tratarDados (id) {
     // Adicionar os tipos
 
     tipos = [];
-    tipoModal.innerHTML = '';
+    // tipoModal.innerHTML = '';
     Object.keys(pokemonList[id].types).forEach((item) => {
         tipos.push(pokemonList[id].types[item].type.name);
-        tipoModal.innerHTML += `<spam>${tipos[item]}</spam><br>`
+        // tipoModal.innerHTML += `<spam>${tipos[item]}</spam><br>`
     })
 
     // Adicionar os ataques
 
     ataques = [];
     ataquesModal.innerHTML = '';
-    Object.keys(pokemonList[id].moves).forEach((item) => {
-        ataques.push(pokemonList[id].moves[item].move.name);
+    Object.keys(pokemonList[id].abilities).forEach((item) => {
+        ataques.push(pokemonList[id].abilities[item].ability.name);
         ataquesModal.innerHTML += `<spam>${ataques[item]}</spam><br>`
     })
 
@@ -120,12 +120,12 @@ function tratarDados (id) {
     // Pegar peso
 
     peso = pokemonList[id].weight;
-    pesoModal.innerHTML = peso.toFixed(1) / 10;
+    pesoModal.innerHTML = `${peso.toFixed(1) / 10}Kg`;
 
     // Pegar altura
 
     altura = pokemonList[id].height;
-    alturaModal.innerHTML = altura.toFixed(1) / 10;
+    alturaModal.innerHTML = `${altura.toFixed(1) / 10}M`;
     
 
 
