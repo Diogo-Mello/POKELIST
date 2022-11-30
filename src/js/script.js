@@ -1,3 +1,3 @@
 document.addEventListener('DOMContentLoaded', () => {
-    carregarPokemons();
+    carregarPokemons(quantidade1+50);
 })

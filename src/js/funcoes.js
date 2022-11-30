@@ -4,11 +4,13 @@ const pokemonList = [];
 const listPokemon = document.getElementById('listPokemon');
 var boolean = false;
 var tipos = [];
-var ataques = [];
+var habilidades = [];
 var statusPokemons = [];
+var descricaoHabilidades = []
 var peso;
 var altura;
 var porcentagem;
+var quantidade1 = 1;
 
 // Modal variaveis
 const divPokemonImg = document.getElementById('pokemonImg')
@@ -19,16 +21,16 @@ var typeModalStyle;
 const tipoModal = document.getElementById('tipo');
 const pesoModal = document.getElementById('peso');
 const alturaModal = document.getElementById('altura');
-const ataquesModal = document.getElementById('ataques');
+const habilidadesModal = document.getElementById('habilidade');
 const statusModal = document.getElementById('status');
 const colorTypes = document.querySelectorAll('.contentGraphic, #habilidadeCard, #tipoCard, .contentPesoAltura');
 const contentGraphicModalStatus = document.querySelectorAll('.graphicHP, .graphicAttack, .graphicDefense, .graphicSAttack, .graphicSDefense, .graphicSpeed');
 const numbersStatusGraphic = document.querySelectorAll('#numberHPStatus, #numberAttackStatus, #numberDefenseStatus, #numberSAttackStatus, #numberSDefenseStatus, #numberSpeedStatus');
 
 
-async function carregarPokemons() {
+async function carregarPokemons(quantidade) {
     showLoading();
-    for (let i = 1; i <= 50 ; i++) {
+    for (let i = quantidade1; i <= quantidade ; i++) {
         let pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
         pokemon = await pokemon.json();
         pokemonList.push(pokemon);
@@ -38,13 +40,14 @@ async function carregarPokemons() {
 }
 
 function mostrarPokemons() {
+    listPokemon.innerHTML = '';
     pokemonList.forEach((item, y) => {
         listPokemon.innerHTML += `
     <ion-item onclick="abrirModal(${y})">
         <ion-thumbnail slot="start">
-            <img alt="Silhouette of mountains" class="imagem" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${y+1}.png" />
+            <img class="imagem" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${y+1}.png" />
         </ion-thumbnail>
-        <ion-label style="text-transform:capitalize; ">${item.name}</ion-label>
+        <ion-label class="capitalize" ">${item.name}</ion-label>
     </ion-item>
     `
     })
@@ -89,19 +92,19 @@ function tratarDados (id) {
     // Adicionar os tipos
 
     tipos = [];
-    // tipoModal.innerHTML = '';
+    tipoModal.innerHTML = '';
     Object.keys(pokemonList[id].types).forEach((item) => {
         tipos.push(pokemonList[id].types[item].type.name);
-        // tipoModal.innerHTML += `<spam>${tipos[item]}</spam><br>`
+        tipoModal.innerHTML += `<spam class="capitalize">${tipos[item]}</spam><br>`
     })
 
-    // Adicionar os ataques
+    // Adicionar as habilidades
+    habilidades = [];
 
-    ataques = [];
-    ataquesModal.innerHTML = '';
+    habilidadesModal.innerHTML = '';
     Object.keys(pokemonList[id].abilities).forEach((item) => {
-        ataques.push(pokemonList[id].abilities[item].ability.name);
-        ataquesModal.innerHTML += `<spam>${ataques[item]}</spam><br>`
+        habilidades.push(pokemonList[id].abilities[item].ability.name);
+        habilidadesModal.innerHTML += `<spam class="capitalize">${habilidades[item]}</spam><br>`
     })
 
     // Adicionar os status
@@ -126,11 +129,6 @@ function tratarDados (id) {
 
     altura = pokemonList[id].height;
     alturaModal.innerHTML = `${altura.toFixed(1) / 10}M`;
-    
-
-
-
-    
 }
 
 function statusPorcentagem (status) {
@@ -140,18 +138,15 @@ function statusPorcentagem (status) {
     })
 }
 
-
-
-
-
-
-
-
+function carregarMais () { 
+    quantidade1 += 51;
+    carregarPokemons(quantidade1+50) 
+}
 
 
 async function showLoading() {
     const loading = await document.createElement('ion-loading');
-    loading.message = 'Carregando';
+    loading.message = 'Aguarde...';
     document.body.appendChild(loading);
     await loading.present();
 }

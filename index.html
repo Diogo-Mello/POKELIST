@@ -28,7 +28,7 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content id="content" class="ion-padding" color="dark">
+    <ion-content id="content" class="ion-padding ion-text-center" color="dark">
 
       <ion-card>
         <ion-card-header>
@@ -37,15 +37,20 @@
         </ion-card-header>
         <ion-card-content>
           <ion-list id="listPokemon">
-
           </ion-list>
         </ion-card-content>
       </ion-card>
 
+      <ion-row>
+        <ion-col size="12">
+          <ion-button onclick="carregarMais();">Carregar mais</ion-button>
+        </ion-col>
+      </ion-row>
 
 
 
 
+      <!-- Janela modal -->
 
       <ion-modal>
         <ion-header>
@@ -69,7 +74,7 @@
           </div>
 
           <div id="divNomePokemon">
-            <h1 id="nomePokemon" style="text-transform:capitalize;"></h1>
+            <h1 id="nomePokemon" class="capitalize"></h1>
           </div>
 
 
@@ -161,25 +166,23 @@
 
           <ion-row id="tipo_habilidade">
             <ion-col size="5" id="tipoCard" class="ion-text-center">
-
+              <span class="bold">Types</span>
+              <span id="tipo"></span>
             </ion-col>
-            <ion-col size="5" id="habilidadeCard">
-              <div id="conteudo">
-                <div id="ataquesModal">
-                  Ataques: <br>
-                  <span id="ataques"></span>
-                </div>
-              </div>
+
+            <ion-col size="5" id="habilidadeCard" class="ion-text-center">
+              <span class="bold">Abilities</span>
+              <span id="habilidade"></span>
             </ion-col>
           </ion-row>
 
           <ion-row>
             <ion-col size="4" class="contentPesoAltura contentPeso ion-text-center">
-              <spam>Peso</spam>
+              <spam class="bold">Weight</spam>
               <span id="peso"></span>
             </ion-col>
             <ion-col size="4" class="contentPesoAltura contentAltura">
-              <spam>Altura</spam>
+              <spam class="bold">Height</spam>
               <span id="altura"></span>
             </ion-col>
           </ion-row>

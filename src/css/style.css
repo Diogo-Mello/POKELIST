@@ -110,6 +110,7 @@
 #tipoCard, #habilidadeCard {
 	height: 100%;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	border-radius: 1rem;
@@ -133,11 +134,18 @@
 .contentPeso {
 	position: relative;
 	left: 4.8rem;
-	
 }
 
 .contentAltura {
 	position: relative;
 	top: 3.5rem;
 	left: 1.8rem;
+}
+
+.bold {
+	font-weight: bolder;
+}
+
+.capitalize {
+	text-transform: capitalize;
 }
