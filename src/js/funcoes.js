@@ -11,6 +11,7 @@ var peso;
 var altura;
 var porcentagem;
 var quantidade1 = 1;
+const btnLoading = document.getElementById('btn');
 
 // Modal variaveis
 const divPokemonImg = document.getElementById('pokemonImg')
@@ -34,9 +35,11 @@ async function carregarPokemons(quantidade) {
         let pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
         pokemon = await pokemon.json();
         pokemonList.push(pokemon);
+        
     }
     closeLoading();
     mostrarPokemons();
+    console.log(pokemonList)
 }
 
 function mostrarPokemons() {
@@ -140,7 +143,12 @@ function statusPorcentagem (status) {
 
 function carregarMais () { 
     quantidade1 += 101;
-    carregarPokemons(quantidade1+100) 
+    let quantidade2 = 100;
+    if (quantidade1 == 808) {
+        quantidade2 = 97;
+        btnLoading.innerHTML = '';
+    }
+    carregarPokemons(quantidade1+quantidade2) 
 }
 
 
