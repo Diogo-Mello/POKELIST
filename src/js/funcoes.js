@@ -10,7 +10,7 @@ var descricaoHabilidades = []
 var peso;
 var altura;
 var porcentagem;
-var quantidade1 = 1;
+var quantidade1 = 0;
 const btnLoading = document.getElementById('btn');
 
 // Modal variaveis
@@ -32,7 +32,7 @@ const numbersStatusGraphic = document.querySelectorAll('#numberHPStatus, #number
 async function carregarPokemons(quantidade) {
     showLoading();
     for (let i = quantidade1; i <= quantidade ; i++) {
-        let pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
+        let pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${i+1}`);
         pokemon = await pokemon.json();
         pokemonList.push(pokemon);
         
@@ -43,17 +43,27 @@ async function carregarPokemons(quantidade) {
 }
 
 function mostrarPokemons() {
-    listPokemon.innerHTML = '';
-    pokemonList.forEach((item, y) => {
+    for (var z = quantidade1; z <= pokemonList.length-1; z++)
+    {
         listPokemon.innerHTML += `
-    <ion-item onclick="abrirModal(${y})">
-        <ion-thumbnail slot="start">
-            <img class="imagem" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${y+1}.png" />
-        </ion-thumbnail>
-        <ion-label class="capitalize" ">${item.name}</ion-label>
-    </ion-item>
-    `
-    })
+        <ion-item onclick="abrirModal(${z})">
+            <ion-thumbnail slot="start">
+                <img class="imagem" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${z+1}.png" />
+            </ion-thumbnail>
+            <ion-label class="capitalize" ">${pokemonList[z].name}</ion-label>
+        </ion-item>
+    ` 
+    }
+    // pokemonList.forEach((item, y) => {
+    //     listPokemon.innerHTML += `
+    // <ion-item onclick="abrirModal(${y})">
+    //     <ion-thumbnail slot="start">
+    //         <img class="imagem" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${y+quantidade1}.png" />
+    //     </ion-thumbnail>
+    //     <ion-label class="capitalize" ">${item.name}</ion-label>
+    // </ion-item>
+    // `
+    // })
 }
 
 function abrirModal (id) {
@@ -68,7 +78,7 @@ function tratarDados (id) {
 
     // Mudar a foto
 
-    imgModal.setAttribute('src', pokemonList[id].sprites.other.dream_world.front_default);
+    imgModal.setAttribute('src', `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id+1}.png`);
 
     // Mudar a cor 
 
@@ -136,7 +146,7 @@ function tratarDados (id) {
 
 function statusPorcentagem (status) {
     contentGraphicModalStatus.forEach((item, posicao) => {
-        porcentagem = (status[posicao] * 100) / 200;
+        porcentagem = (status[posicao] * 100) / 250;
         item.style.height = `${porcentagem}%`
     })
 }
@@ -145,7 +155,7 @@ function carregarMais () {
     quantidade1 += 101;
     let quantidade2 = 100;
     if (quantidade1 == 808) {
-        quantidade2 = 97;
+        quantidade2 = 96;
         btnLoading.innerHTML = '';
     }
     carregarPokemons(quantidade1+quantidade2) 
