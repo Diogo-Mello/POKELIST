@@ -139,8 +139,8 @@ function statusPorcentagem (status) {
 }
 
 function carregarMais () { 
-    quantidade1 += 51;
-    carregarPokemons(quantidade1+50) 
+    quantidade1 += 101;
+    carregarPokemons(quantidade1+100) 
 }
 
 
